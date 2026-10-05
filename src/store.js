@@ -1,6 +1,6 @@
 import { reactive } from 'vue';
 
-const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons';
+const endpoint = 'https://pokeapi.co/api/v2/pokemon';
 
 export const store = reactive({
     endpoint,
