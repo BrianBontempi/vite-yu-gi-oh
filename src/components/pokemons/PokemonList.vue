@@ -1,10 +1,11 @@
 <script>
 import { store } from '../../store';
 import PokemonCard from './PokemonCard.vue';
+import AppLoader from '../AppLoader.vue';
 
 export default {
     name: 'PokemonList',
-    components: { PokemonCard },
+    components: { PokemonCard, AppLoader },
     data: () => ({
         store
     })
@@ -12,7 +13,8 @@ export default {
 </script>
 
 <template>
-    <div v-if="store.hasError" class="alert alert-danger text-center">
+    <AppLoader v-if="store.isLoading" />
+    <div v-else-if="store.hasError" class="alert alert-danger text-center">
         Impossibile caricare i Pokémon, riprova più tardi.
     </div>
     <div v-else class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
